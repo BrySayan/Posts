@@ -1,7 +1,8 @@
-import { Posts } from "./components/Posts"
+import React from 'react';
+import { Posts } from './components/Posts';
 
-function App(){
-    return <Posts />
+function App() {
+    return <Posts />;
 }
 
-export {App};
+export default App;  // Asegúrate de que App sea el componente predeterminado exportado

@@ -1,4 +1,4 @@
-import { useState, UseRef } from 'react';
+import { useState, useRef } from 'react';
 import { Post } from './Post'
 import { v4 as uuid } from 'uuid'
 
@@ -12,7 +12,7 @@ export function Posts() {
         const titulo = tituloRef.current.value;
         const descripcion = descripcionRef.current.value;
 
-        if (title.trim() === '' || descripcionRef.trim() === '') {
+        if (titulo.trim() === '' || descripcion.trim() === '') {
             setMensaje('Campos vacios');
             setTimeout(()=> {
                 setMensaje('');
@@ -39,9 +39,9 @@ export function Posts() {
     }
 
     return (
-        <div ClassName="container">
+        <div className="container">
             <h1>Notas</h1>
-            <div ClassName="d-flex">
+            <div className="d-flex">
                 <input ref={tituloRef} className="form-control m-2" type="text" placeholder="Titulo" />
                 <input ref={descripcionRef} className="form-control m-2" type="text" placeholder="Descripcion"/>
                 <button className="btn btn-success m2" onClick={añadirPost}>Agregar Post</button>
@@ -50,7 +50,7 @@ export function Posts() {
                 {mensaje}
             </div>
             <div className="d-flex flex-wrap">
-                {listaPost.map(Post => <Post post={post} key={post.id} removePost={eliminarPost} />)}
+                {listaPost.map(postItem => <Post post={postItem} key={postItem.id} eliminarPost={eliminarPost} />)}
             </div>
         </div>
     );
