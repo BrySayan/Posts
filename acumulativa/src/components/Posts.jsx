@@ -44,19 +44,19 @@ export function Posts() {
     return (
         <div className="container">
             <h1>Notas</h1>
-            <div className="d-flex">
+            <div style={{display:'flex', flexWrap:'wrap'}} className="d-flex">
                 <input ref={tituloRef} className="form-control m-2" type="text" placeholder="Título" style={{marginRight:'10px'}} />
                 <input ref={descripcionRef} className="form-control m-2" type="text" placeholder="Descripción" />
                 <div className="form-check m-2">
                     <input ref={importanteRef} className="form-check-input" type="checkbox" id="importante" />
                     <label className="form-check-label" htmlFor="importante">Importante</label>
                 </div>
-                <button className="btn btn-success m-2" onClick={añadirPost}>Agregar Post</button>
+                <button style={{marginLeft:'10px'}} className="btn btn-success m-2" onClick={añadirPost}>Agregar Post</button>
             </div>
             <div className="alert alert-danger mt-2" role="alert" hidden={!mensaje}>
                 {mensaje}
             </div>
-            <div className="d-flex flex-wrap">
+            <div style={{display:'flex', flexWrap:'wrap', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)'}} className="d-flex flex-wrap">
                 {listaPost.map(postItem => (
                     <Post 
                         post={postItem} 
